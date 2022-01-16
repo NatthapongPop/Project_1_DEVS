@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GPA-Page-Wongsathorn</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+    <div style="text-align: left;background-color: black; padding: 1%;">
+        <a href="MainPage.html">BACK</a>
+        <h1 style="color: white ;text-align: center;">GPA of Wongsathorn</h1>
+    </div>
+
+    <section id="Select_Box">
+        <div style="position: relative;font-family: 'Source Sans Pro', sans-serif;">
+            <div class="container-fluid row" style="background-color: purple;">
+
+                <div style="margin: 1%;" class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                        <div style="padding-left: 10%;" class="col-lg-6 col-md-6 col-sm-6">
+                            <select id="year" onchange="getSelectValue_year();">
+                                <option value="0"> Select Year </option>
+                                <option value="1"> Year_1 </option>
+                                <option value="2"> Year_2 </option>
+                            </select>
+                        </div>
+
+                        <div style="padding-left: 10%;" class="col-lg-6 col-md-6 col-sm-6 ">
+
+
+                            <select id="semester" onchange="getSelectValue_semester();">
+                                <option value="0"> Select Semester </option>
+                                <option value="1"> Semester_1 </option>
+                                <option value="2"> Semester_2 </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="Grade_Pic" style="position: relative;">
+        <div class="container-fluid row" style="background-color: pink;">
+            <div style="margin: 1%;" class="col-lg-6 col-md-6 col-sm-6">
+
+
+
+                <script>
+                    var SelectValue_year
+                    var SelectValue_semester
+
+                    function getSelectValue_year() {
+                        SelectValue_year = document.getElementById("year").value;
+                        console.log("Year: " + SelectValue_year);
+                        Show_GPA()
+                    }
+
+                    function getSelectValue_semester() {
+                        SelectValue_semester = document.getElementById("semester").value;
+                        console.log("Semester: " + SelectValue_semester);
+                        Show_GPA()
+                    }
+
+
+                    function Show_GPA() {
+
+
+                        if (SelectValue_year == "1" && SelectValue_semester == "1") {
+                            console.log("Print: 1 - 1 GPA");
+
+                            for (var i = document.images.length; i-- > 0;)
+                                document.images[i].parentNode.removeChild(document.images[i]);
+                            display_image('Asset/markGradeAsset/Grade1_1.png', 'JavaScriptImage');
+
+                        } else if (SelectValue_year == "1" && SelectValue_semester == "2") {
+                            console.log("Print: 1 - 2 GPA");
+                            for (var i = document.images.length; i-- > 0;)
+                                document.images[i].parentNode.removeChild(document.images[i]);
+                            display_image('Asset/markGradeAsset/Grade1_2.png', 'JavaScriptImage');
+
+                        } else if (SelectValue_year == "2" && SelectValue_semester == "1") {
+                            console.log("Print: 2 - 1 GPA");
+                            for (var i = document.images.length; i-- > 0;)
+                                document.images[i].parentNode.removeChild(document.images[i]);
+                            display_image('Asset/markGradeAsset/Grade2_1.png', 'JavaScriptImage');
+
+                        } else if (SelectValue_year == "2" && SelectValue_semester == "2") {
+                            console.log("Print: 2 - 2 GPA");
+                            for (var i = document.images.length; i-- > 0;)
+                                document.images[i].parentNode.removeChild(document.images[i]);
+                            display_image('Asset/markGradeAsset/Grade2_2.png', 'JavaScriptImage');
+
+                        } else {
+                            for (var i = document.images.length; i-- > 0;)
+                                document.images[i].parentNode.removeChild(document.images[i]);
+
+                            console.log("Clear");
+                        }
+
+                    }
+
+
+                    function display_image(src, alt) {
+
+
+                        var a = document.createElement("img");;
+                        a.src = src;
+                        a.alt = alt;
+                        document.body.appendChild(a);
+
+
+                    }
+
+                </script>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
